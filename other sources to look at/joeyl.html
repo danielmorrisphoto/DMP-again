@@ -1,0 +1,2352 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Joey L. - NYC-based Photographer and Director </title>
+    <meta name="description" content="Photographer Joey Lawrence’s portfolio and director’s reel. Including portraits from Ethiopia’s Omo Valley, Varanasi India, and various commercial assignments.">
+
+<meta name="keywords" content="joey l,joey lawrence,photographer,photography,portfolio,varanasi">
+
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/reset.css" />
+    
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="https://joeyl.com/packages/fancybox/source/jquery.fancybox.css" />
+    <link rel="stylesheet" href="https://joeyl.com/packages/toastr-master/build/toastr.min.css" />
+    
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/screenNew.css" />
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/screenPlus.css" />
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/popup.css" />
+
+    <link type="text/css" rel="stylesheet" href="https://joeyl.com/css/slicknav.min.css" />
+
+    <link href="https://joeyl.com/css/retina.css" rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css">
+
+    <script type="text/javascript" src="https://joeyl.com/js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="https://joeyl.com/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://joeyl.com/js/jquery.slicknav.js"></script>
+    <script type="text/javascript" src="https://joeyl.com/packages/toastr-master/build/toastr.min.js"></script>
+    <script>
+    var preloadPictures = function(pictureUrls, callback) {
+        var i,
+            j,
+            loaded = 0;
+
+        for (i = 0, j = pictureUrls.length; i < j; i++) {
+            (function (img, src) {
+                img.onload = function () {
+                    // console.log("loaded----- " + src);
+                    if (++loaded == pictureUrls.length && callback) {
+                        callback();
+                    }
+                };
+
+                // Use the following callback methods to debug
+                // in case of an unexpected behavior.
+                img.onerror = function () {};
+                img.onabort = function () {};
+
+                img.src = src;
+            } (new Image(), pictureUrls[i]));
+        }
+    };
+
+
+    $(function() {
+
+        $("a.lightbox-portfolio").fancybox({
+            // 'transitionIn'  :   'elastic',
+            // 'transitionOut' :   'elastic',
+            // 'speedIn'       :   600,
+            // 'speedOut'      :   200,
+            // 'overlayShow'   :   false,
+            'nextEffect'    :   'fade',
+            'prevEffect'    :   'none',
+            'nextSpeed'     :    600,
+            'prevSpeed'     :    100,
+            // 'closeOpacity'    :   false,
+            // arrows          :   true,
+            margin          :   [25,55,115,55],
+            tpl             :   {wrap:'<div class="fancybox-wrap port-wrap-skin" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>'},
+            afterShow: function(){
+                $(".fancybox-image").on("swipeleft",function(e){
+                    $.fancybox.next();
+                });
+                $(".fancybox-image").on("swiperight",function(e){
+                    $.fancybox.prev();
+                });
+                
+                if ($('.port-desc').height() > 63){
+                    $('.lightbox-portfolio-overlay').animate({bottom: "-"+($('.port-desc').height()+23)+'px'});
+                }
+                location.replace('#'+encodeURI($(this.element).data('name'))); 
+                // document.location.hash=encodeURI($(this.element).data('name'));
+
+            },
+            afterClose: function(){
+                if(history.pushState) {
+                    history.pushState(null, null, "#");
+                } else {
+                    location.replace('#');
+                }
+            },
+            afterLoad: function() {
+                var study = ($(this.element).data('study'));
+                var desc = ($(this.element).data('desc'));
+                if (study != "") {
+                    study='<div class="port-study"><a href="'+study+'" class="port-study-btn">VIEW CASE STUDY</a></div>'; 
+                    $(".fancybox-outer").append('<div class="lightbox-portfolio-overlay"> <div class="port-desc">'+ desc +'</div>'+ study +'</div>');
+                } else {
+                    $(".fancybox-outer").append('<div class="lightbox-portfolio-overlay"> <div class="port-desc">'+ desc +'</div></div>');
+                }    
+            },
+            helpers: {
+                overlay: {
+                    locked: false
+                }
+            }
+        });           
+
+        var urlhash; 
+
+        $(document).on("mainContentShowed",function(){
+            if ((urlhash = document.location.hash.substr(1)) != "") {
+                urlhash = decodeURI(urlhash);
+                if ($('[data-name="'+urlhash+'"] img').length){
+                    $.fancybox.showLoading();
+                    setTimeout(function(){
+                        $('[data-name="'+urlhash+'"] img').trigger('click');
+                    }, 500);
+                } else {
+                    document.location.hash="";
+                }
+            }
+        });
+        
+
+    });
+
+
+</script>
+  
+
+
+
+</head>
+<body >
+<div class="plusone"><img src="https://joeyl.com/img/plusone.png" alt="plus one" width="34" height="34"></div>
+
+<div class="subscribe-wrapper">
+        <div class="subscribe-wrapper-bckg"></div>
+        <div class="subscribe-panel">
+            <div class="container">
+                <form method="POST" action="https://joeyl.com/subscribe" accept-charset="UTF-8" id="subscribe-form"><input name="_token" type="hidden" value="fWTmOZAtwPBeY2kmjEPCh8wDuEtWVQBApCMDs7Cj">
+                    <fieldset>
+                        <!-- <span class="cross"></span> -->
+	<div><label>First Name*</label><input class="style-01" type="text" name="firstName"/><label class="padded">Last Name</label><input class="style-01" type="text" name="lastName"/><label class="padded" style="width:150px">Please prove you are human*</label><input class="style-01 padded" placeholder="What is 7 + two *" name="captcha" type="text" value=""></div>
+                        <div><label>Email*</label><input class="style-02" type="email" name="email"/></div>
+                        <input type="submit" name="subscribe" value="SUBSCRIBE"/>
+                        <span id="cancel-subscribe">[<span>cancel</span>]</span>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- 
+<div class="subscribe-panel">
+    <div class="container">
+        <form action="#" method="POST">
+            <fieldset>
+                <span class="cross"></span>
+                <div><label>First Name*</label><input class="style-01" type="text" name="firstName"/><label class="padded">Last Name</label><input class="style-01" type="text" name="lastName"/><label class="padded02">I would like to get updates on:</label></div>
+                <div><label>Email*</label><input class="style-02" type="email" name="email"/><div class="checkbox"><div class="chk unchecked"><input type="checkbox" checked=""/></div></div><label class="padded03">New Photography &amp; Blog Posts</label><div class="checkbox"><div class="chk checked"><input type="checkbox" checked="checked"/></div></div><label class="padded03">New Tutorials &amp; Workshops</label><input type="submit" name="subscribe" value="SUBSCRIBE"/></div>
+            </fieldset>
+        </form>
+    </div>
+</div> -->
+<div class="underhead"></div>
+<header id="headerMenu">
+    <div id="desktopMenu" class="container hcontainer menu">
+        <div class="logo"><a href="/"></a></div>
+        <nav>
+            <ul id="mainNavigation">
+                <!-- <li class="mainNavLi  "><a href="https://joeyl.com/portfolio">PORTFOLIO</a> -->
+                <li class="mainNavLi   current_page_item "><a href="#">OVERVIEW</a>
+                    
+                     <ul class="nav-submenu">
+                                                                                    <li><a href="https://joeyl.com/overview/category/quick-portfolio" class="active">Quick Portfolio</a></li>
+                                                                                                                <li><a href="https://joeyl.com/overview/category/personal-work" >Personal Work</a></li>
+                                                                                                                <li><a href="https://joeyl.com/overview/category/Celebrity" >Celebrity</a></li>
+                                                                                                                <li><a href="https://joeyl.com/overview/category/advertising-tear-sheets" >Ads / Tear Sheets</a></li>
+                                                                        </ul>
+                </li>
+                <li class="mainNavLi  "><a class="" href="#"><span>SELECT PROJECTS</span></a>
+                    <ul class="nav-submenu">
+                                                                                    <li><a href="https://joeyl.com/portfolio/category/32" >Oxfam: The Mosul Corridor</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/LavazzaCalendar2016" >Lavazza Calendar 2016</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/guerrilla-fighters-of-kurdistan" >Guerrilla Fighters of Kurdistan</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/JoseCuervo" >Jose Cuervo: Ad Campaign</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/USARMY" >US Army: Ad Campaign</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/holy-men" >Holy Men</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/halloween-in-brooklyn" >Halloween In Brooklyn</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/omo-valley" >The Omo Valley</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/the-mentawai" >The Mentawai</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/Killing-Kennedy-Lincoln" >Killing Kennedy & Lincoln</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/FEED-projects" >FEED Projects</a></li>
+                                                                                                                <li><a href="https://joeyl.com/portfolio/category/zombie-boy" >Zombie Boy</a></li>
+                                                                        </ul>
+                </li>
+
+                                                        <li class="mainNavLi  "><a class="" href="https://joeyl.com/videos/category/4"><span>MOTION</span></a></li>
+                                                <li class="mainNavLi  "><a class="" href="#"><span>ON SET</span></a>
+                    <ul class="nav-submenu">
+                                                    <li><a href="https://joeyl.com/onset/on-set" >Photos</a></li>
+                                                    <li><a href="https://joeyl.com/onset/dudeswithcameras" >Dudes With Cameras</a></li>
+                                                    <li><a href="https://joeyl.com/onset/videos" >Travel Videos</a></li>
+                                            </ul>
+                </li>
+                                <li class="mainNavLi  "><a class="" href="https://joeyl.com/blog/all"><span>BLOG</span></a>
+                                                                                                                                                                                                                        </li>
+
+                <li class="mainNavLi"><a target="_blank" href="http://www.learnfromjoeyl.com"><span>TUTORIALS</span></a></li>
+                <li class="mainNavLi  "><a class="" href="/store"><span>STORE</span></a>
+                    <ul class="nav-submenu">
+                        <li><a href="/store" >All</a></li>
+                        <li><a href="https://joeyl.com/store/printphotos" >Print &amp; Photos </a></li>
+                        <li><a href="https://joeyl.com/store/shadowboxes" >Shadowboxes</a></li>
+                        <li><a href="/store/info" >Store Info</a></li>
+
+                    </ul>
+                </li>
+                <li class="mainNavLi  "><a class="" href="#"><span>ABOUT</span></a>
+                    <ul class="nav-submenu">
+                        <li><a href="/about/bio" >Bio</a></li>
+                        <li><a href="/about/faq" >FAQs</a></li>
+                        <li><a href="/about/gear" >Gear List</a></li>
+                    </ul>
+                </li>
+
+                <li class="mainNavLi  "><a href="/contact" >Contact</a></li>
+
+                <!-- <li class="mainNavLi "><a href="/contact"><span>CONTACT</span></a></li> -->
+                <li id='magic-line'></li>
+            </ul>
+        </nav>
+        <a class="subscribe" href="ei" onclick="return false;">SUBSCRIBE</a>
+    </div>
+    <ul id="menu">
+        <li class="  current_page_item "><a href="#">Overview</a>    
+             <ul class="">
+                                                            <li><a href="https://joeyl.com/overview/category/quick-portfolio" class="active">Quick Portfolio</a></li>
+                                                                                <li><a href="https://joeyl.com/overview/category/personal-work" >Personal Work</a></li>
+                                                                                <li><a href="https://joeyl.com/overview/category/Celebrity" >Celebrity</a></li>
+                                                                                <li><a href="https://joeyl.com/overview/category/advertising-tear-sheets" >Ads / Tear Sheets</a></li>
+                                                </ul>
+        </li>
+        <li class=" "><a class="" href="#"><span>Select Projects</span></a>
+            <ul class="">
+                                                            <li><a href="https://joeyl.com/portfolio/category/32" >Oxfam: The Mosul Corridor</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/LavazzaCalendar2016" >Lavazza Calendar 2016</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/guerrilla-fighters-of-kurdistan" >Guerrilla Fighters of Kurdistan</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/JoseCuervo" >Jose Cuervo: Ad Campaign</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/USARMY" >US Army: Ad Campaign</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/holy-men" >Holy Men</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/halloween-in-brooklyn" >Halloween In Brooklyn</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/omo-valley" >The Omo Valley</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/the-mentawai" >The Mentawai</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/Killing-Kennedy-Lincoln" >Killing Kennedy & Lincoln</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/FEED-projects" >FEED Projects</a></li>
+                                                                                <li><a href="https://joeyl.com/portfolio/category/zombie-boy" >Zombie Boy</a></li>
+                                                </ul>
+        </li>
+
+                                <li class=" "><a class="" href="https://joeyl.com/videos/category/4"><span>Motion</span></a></li>
+                        <li class=" "><a class="" href="#"><span>On Set</span></a>
+            <ul class="">
+                                    <li><a href="https://joeyl.com/onset/on-set" >Photos</a></li>
+                                    <li><a href="https://joeyl.com/onset/dudeswithcameras" >Dudes With Cameras</a></li>
+                                    <li><a href="https://joeyl.com/onset/videos" >Travel Videos</a></li>
+                            </ul>
+        </li>
+                <li class=" "><a class="" href="https://joeyl.com/blog/all"><span>Blog</span></a>
+                                                                                                                                                </li>
+
+        <li class=""><a target="_blank" href="http://www.learnfromjoeyl.com"><span>Tutorials</span></a></li>
+        <li class=" "><a class="" href="/store"><span>Store</span></a>
+            <ul class="">
+                <li><a href="/store" >All</a></li>
+                <li><a href="https://joeyl.com/store/printphotos" >Print &amp; Photos </a></li>
+                <li><a href="https://joeyl.com/store/shadowboxes" >Shadowboxes</a></li>
+                <li><a href="/store/info" >Store Info</a></li>
+
+            </ul>
+        </li>
+        <li class=" "><a class="" href="#"><span>About</span></a>
+            <ul >
+                <li><a href="/about/bio" >Bio</a></li>
+                <li><a href="/about/faq" >FAQs</a></li>
+                <li><a href="/about/gear" >Gear List</a></li>
+            </ul>
+        </li>
+
+        <li class=" "><a href="/contact" >Contact</a></li>
+        <li><a class="subscribe" href="ei" onclick="return false;">Subscribe</a></li>
+    </ul>
+</header>
+<div class="wrapper">
+    
+
+   
+    
+     <div class="image-grid">
+        <div class="wrap">
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/nadak-aziz-and-kharim-ali-920">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Qayarrah_Iraq_Joey_L_Photographer_02.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Qayarrah_Iraq_Joey_L_Photographer_02.JPG" data-study="" data-desc="Nadak Aziz and Kharim Ali
+- October 25th, 2016">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Qayarrah_Iraq_Joey_L_Photographer_02_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Nadak Aziz and Kharim Ali</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/families-watch-as-firefighters-attempt-921">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Qayarrah_Iraq_Joey_L_Photographer_09.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Qayarrah_Iraq_Joey_L_Photographer_09.JPG" data-study="" data-desc="Families Watch as Firefighters Attempt to Extinguish the Flames of an Oil Well in Qayyarah - October 26th, 2016">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Qayarrah_Iraq_Joey_L_Photographer_09_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Families Watch as Firefighters Attempt</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/nader-yassim-coordinates-hoses-running-water-922">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Qayarrah_Iraq_Joey_L_Photographer_11.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Qayarrah_Iraq_Joey_L_Photographer_11.JPG" data-study="" data-desc="Nader Yassim Co-ordinates Hoses Running Water to Firefighters - October 26th, 2016">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Qayarrah_Iraq_Joey_L_Photographer_11_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Nader Yassim Co-ordinates Hoses Running Water</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/adriano-mandira-de-oliveira-canan">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_001.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_001.JPG" data-study="" data-desc="Adriano Mandira De Oliveira - Canan&eacute;ia, Brazil. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_001 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Adriano Mandira De Oliveira - Canan&eacute;ia, Brazil</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/adriano-mandira-de-oliveira-canan">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_005.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_005.JPG" data-study="" data-desc="Adriano Mandira De Oliveira - Canan&eacute;ia, Brazil. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_005 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Adriano Mandira De Oliveira - Canan&eacute;ia, Brazil</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ildaura-matos-calderon-villa-rica-peru-852">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_014.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_014.JPG" data-study="" data-desc="Ildaura Matos Calderon - Villa Rica, Peru. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_014 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ildaura Matos Calderon - Villa Rica, Peru</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ildaura-matos-calderon-villa-rica-peru-853">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_013A.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_013A.JPG" data-study="" data-desc="Ildaura Matos Calderon - Villa Rica, Peru. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_013A copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ildaura Matos Calderon - Villa Rica, Peru</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/mancilla-family-villa-rica-peru-854">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_010A.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_010A.JPG" data-study="" data-desc="Mancilla Family - Villa Rica, Peru. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_010A copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Mancilla Family - Villa Rica, Peru</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jesus-a-collazos-villa-esperanza-colombia-857">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_022.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_022.JPG" data-study="" data-desc="Jesus A. Collazos - Villa Esperanza, Colombia. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_022 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jesus A. Collazos - Villa Esperanza, Colombia</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jesus-a-collazos-villa-esperanza-colombia-858">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_021.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_021.JPG" data-study="" data-desc="Jesus A. Collazos - Villa Esperanza, Colombia. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_021 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jesus A. Collazos - Villa Esperanza, Colombia</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/edulis-casanova-el-aguacate-dominican-republic-859">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_027.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_027.JPG" data-study="" data-desc="Edulis Casanova - El Aguacate, Dominican Republic. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_027 copy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Edulis Casanova - El Aguacate, Dominican Republic</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/juan-diego-hern">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_034.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_034.JPG" data-study="" data-desc="Juan Diego Hern&aaaacute;ndez Cort&eacute;s - Zapotitl&agrave;n, Mexico. Lavazza Calendar 2016, &ldquo;From Father to Son&rdquo;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Lavazza_Calendar_2016_Joey_L_Photographer_From_Father_to_Son_034_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Juan Diego Hern&aacute;ndez Cort&eacute;s - Zapotitl&agrave;n, Mexico</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/berivan-883">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Shingal_Women_Units_Sinjar_Syria_Rojava_Photographer_Joey_L_001.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Shingal_Women_Units_Sinjar_Syria_Rojava_Photographer_Joey_L_001.JPG" data-study="" data-desc="Berivan, a Yezidi Kurd just 19 years old, was once a refugee who fled her village, but is now a fighter in the women&rsquo;s wing of the newly established Shingal Resistance Units">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Shingal_Women_Units_Sinjar_Syria_Rojava_Photographer_Joey_L_001_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Berivan</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/peoples-protections-units-ypg-882">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_002.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_002.JPG" data-study="" data-desc="As the People&rsquo;s Protections Units (YPG) in Syria have begun to liberate territory beyond Kurdish- dominated enclaves, they now find their campaign shifting from a revolution once perceived only as Kurd-centric to one that strives to be inclusive of all ethnic backgrounds. People&rsquo;s Protection Units (YPG), December 4th, 2015, Al- Hawl Southern Front, Rojava, Syria">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_002_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">People&rsquo;s Protections Units (YPG)</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/agiri-south-of-al-hawl-rojava-syria-884">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_003.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_003.JPG" data-study="" data-desc="Agiri aims his BKC machine gun towards an Islamic State Position on the frontline South of Al- Hawl, Rojava, Syria">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_003_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Agiri, South of Al- Hawl, Rojava, Syria</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/mohammad-abo-adel-881">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_005.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_005.JPG" data-study="" data-desc="Mohammad Abo Adel, a General Commander of the rebel group Jaysh al-Thuwar, sits by the Euphrates River. Mohammad wears the uniform of a Syrian Arab Army soldier, but as a defector, his old badges have been removed. Early in the Syrian revolution, he had taken up arms with friends from his village and revolted against the forces loyal to Syrian dictator Bashar al-Assad. Now, the war has evolved and grown in complexity, and rebel groups find themselves waging war against each other instead of finding common cause against the Syrian regime.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Syrian_Democratic_Forces_SDF_Syria_Rojava_Photographer_Joey_L_005_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Mohammad Abo Adel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sorxwin-march-9-2015-tel-hamis-syria--791">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Sorxwin-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Sorxwin-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_001.jpg" data-study="" data-desc="Sorxwin, March 9 2015, Tel Hamis, Syria  ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Sorxwin-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sorxwin, March 9 2015, Tel Hamis, Syria  </p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/kurdistan-workers-party-pkk-guerrillas-792">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/PKK-Kurdistan-Workers-Party-Patrol-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_014.jpg" class="lightbox-portfolio" rel="portfolio" data-name="PKK-Kurdistan-Workers-Party-Patrol-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_014.jpg" data-study="" data-desc="Kurdistan Workers&#039; Party (PKK) Guerrillas Patrol Makhmour Countryside, March 3 2015, Makhmour, Iraq ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/PKK-Kurdistan-Workers-Party-Patrol-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_014.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Kurdistan Workers&#039; Party (PKK) Guerrillas</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/berivan-pkk-commander-march-3-2015-makhmour-ir-860">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Berivan-Commander-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_021.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Berivan-Commander-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_021.jpg" data-study="" data-desc="Berivan, PKK Commander, March 3 2015, Makhmour, Iraq">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Berivan-Commander-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_021.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Berivan, PKK Commander, March 3 2015, Makhmour, Ir</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/portrait-of-ugab-ypg-march-9-2015-793">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Ugab-Tel-Hamis-Syria-YPG-Peoples-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Ugab-Tel-Hamis-Syria-YPG-Peoples-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_003.jpg" data-study="" data-desc="Portrait of Ugab, YPG, March 9 2015, Tel Hamis, Syria">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Ugab-Tel-Hamis-Syria-YPG-Peoples-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Portrait of Ugab, YPG, March 9 2015</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/portrait-of-didar-ypj-commander-march-9-2015-794">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Didar-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_005.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Didar-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_005.jpg" data-study="" data-desc="Portrait of Didar, YPJ Commander March 9 2015, Tel Hamis, Syria ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Didar-Tel-Hamis-Syria-YPJ-Womens-Protection-Units-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_005.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Portrait of Didar, YPJ Commander March 9 2015</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/portrait-of-sarya-with-rpg-pkk-march-4-2015-795">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Sarya-RPG-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_008.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Sarya-RPG-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_008.jpg" data-study="" data-desc="Portrait of Sarya with RPG, PKK, March 4 2015, Makhmour, Iraq">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Sarya-RPG-PKK-Kurdistan-Workers-Party-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_008.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Portrait of Sarya with RPG, PKK, March 4 2015</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/kurdistan-workers-party-pkk-guerrillas-796">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/PKK-Kurdistan-Workers-Party-Group-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_009.jpg" class="lightbox-portfolio" rel="portfolio" data-name="PKK-Kurdistan-Workers-Party-Group-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_009.jpg" data-study="" data-desc="Kurdistan Workers&#039; Party (PKK) Guerrillas Pose Near Makhmour Trench Position, March 4 2015, Makhmour, Iraq">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/PKK-Kurdistan-Workers-Party-Group-Makhmour-Iraq-Guerrilla_Fighters_of_Kurdistan_Joey_L_Photographer_009.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Kurdistan Workers&#039; Party (PKK) Guerrillas</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/the-dusty-streets-of-kobane-with-ypj-martyr-statue-988">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Kobane_Victory_Statue_Syria_SDF_ISIS_Joey_L_Photographer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Kobane_Victory_Statue_Syria_SDF_ISIS_Joey_L_Photographer.jpg" data-study="" data-desc="The dusty streets of Kobane with YPJ martyr statue">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Kobane_Victory_Statue_Syria_SDF_ISIS_Joey_L_Photographer_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">The dusty streets of Kobane with YPJ martyr statue</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/amude-and-memo-children-of-kobane-school-989">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Tank_Kobane_Rojava_Syria_SDF_ISIS_Joey_L_Photographer_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Tank_Kobane_Rojava_Syria_SDF_ISIS_Joey_L_Photographer_002.jpg" data-study="" data-desc="Amude and Memo, children of Kobane school learning in the Kurdish language for the first time">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Tank_Kobane_Rojava_Syria_SDF_ISIS_Joey_L_Photographer_002_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Amude and Memo, children of Kobane school</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/portrait-of-rojda-felat-sdf-general-commander-of--990">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Portrait_Rojda_Felat_Commander_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Portrait_Rojda_Felat_Commander_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer.jpg" data-study="" data-desc="Portrait of Rojda Felat, SDF General Commander of &quot;Wrath of the Euphrates&quot; Operation. Al-Twelaa, Raqqa Province, Syria">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Portrait_Rojda_Felat_Commander_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Portrait of Rojda Felat, SDF General Commander of </p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/zilan-and-arin-members-of-ypj-991">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/YPJ_Fighters_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="YPJ_Fighters_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer.jpg" data-study="" data-desc="Zilan and Arin, members of YPJ, prep a PKM machine gun in an ammunition storage shed">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/YPJ_Fighters_Raqqa_Syria_SDF_ISIS_Joey_L_Photographer_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Zilan and Arin, members of YPJ</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/marty-singer-photographed-for-vanity-fair-934">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Marty_Singer_Vanity_Fair_Joey_L_Photographer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Marty_Singer_Vanity_Fair_Joey_L_Photographer.jpg" data-study="" data-desc="Marty Singer Photographed for Vanity Fair">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Marty_Singer_Vanity_Fair_Joey_L_Photographer_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Marty Singer Photographed for Vanity Fair</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/poste-italiane-campaign-rome-italy-861">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Poste_Italiane_Campaign_01.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Poste_Italiane_Campaign_01.jpg" data-study="" data-desc="Poste Italiane Campaign. Rome, Italy">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Poste_Italiane_Campaign_01_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Poste Italiane Campaign. Rome, Italy</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/poste-italiane-campaign-rome-italy-863">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Poste_Italiane_Campaign_03.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Poste_Italiane_Campaign_03.jpg" data-study="" data-desc="Poste Italiane Campaign. Rome, Italy">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Poste_Italiane_Campaign_03_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Poste Italiane Campaign. Rome, Italy</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/poste-italiane-campaign-rome-italy-862">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Poste_Italiane_Campaign_02.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Poste_Italiane_Campaign_02.jpg" data-study="" data-desc="Poste Italiane Campaign. Rome, Italy">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Poste_Italiane_Campaign_02_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Poste Italiane Campaign. Rome, Italy</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/don-sixto-jose-cuervo-tequila--652">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_001.jpg" data-study="" data-desc="Portrait of &quot;Don Sixto&quot; for Jose Cuervo &quot;Dons of Tequila&quot; Advertising Campaign">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Don Sixto, Jose Cuervo Tequila </p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jose-cuervo-tequila-653">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_004.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_004.jpg" data-study="" data-desc="Portrait of &quot;To&ntilde;o&quot; for Jose Cuervo &quot;Dons of Tequila&quot; Campaign">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_004.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jose Cuervo Tequila</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jose-cuervo-ad-campaign-743">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_003.jpg" data-study="" data-desc="Jose Cuervo &ldquo;Dons of Tequila&rdquo; Advertising Campaign">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jose Cuervo: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-724">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_012.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_012.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_012.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-725">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_015.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_015.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_015.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-723">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_003.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-726">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_034.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_034.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_034.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-727">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_005.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_005.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_005.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-729">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_029.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_029.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_029.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/us-army-ad-campaign-728">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/US_Army_Joey_L_Photographer_021.jpg" class="lightbox-portfolio" rel="portfolio" data-name="US_Army_Joey_L_Photographer_021.jpg" data-study="" data-desc="US Army Advertising campaign and image library photographed in Alaska and Hawaii.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/US_Army_Joey_L_Photographer_021.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">US Army: Ad Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/canon-l-series-165">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Canon_Camera_70-200.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Canon_Camera_70-200.jpg" data-study="" data-desc="Advertisement for Canon L Series">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Canon_Camera_70-200.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Canon L Series</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/canon-l-series-166">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Canon_Camera_16-35.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Canon_Camera_16-35.jpg" data-study="" data-desc="Advertisement for Canon L Series">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Canon_Camera_16-35.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Canon L Series</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/matthew-mcconaughey-for-wild-turkey-whisky-940">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Matthew_Mcconaughey__Wild_Turkey_Whisky_Ad_Joey_L_02.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Matthew_Mcconaughey__Wild_Turkey_Whisky_Ad_Joey_L_02.JPG" data-study="" data-desc="Matthew Mcconaughey For Wild Turkey Whisky">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Matthew_Mcconaughey__Wild_Turkey_Whisky_Ad_Joey_L_02_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Matthew Mcconaughey For Wild Turkey Whisky</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/michael-k-williams-636">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Michael_K_Williams_ACLU_Brooklyn.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Michael_K_Williams_ACLU_Brooklyn.jpg" data-study="" data-desc="Michael K. Williams, actor and ACLU ambassador for ending mass incarceration.">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Michael_K_Williams_ACLU_Brooklyn.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Michael K. Williams</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/michael-k-williams-635">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Michael_K_Williams_ACLU.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Michael_K_Williams_ACLU.jpg" data-study="" data-desc="Michael K. Williams, actor and ACLU ambassador for ending mass incarceration. ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Michael_K_Williams_ACLU.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Michael K Williams</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/author-tom-wolfe-photographed-in-his-home-894">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Tom_Wolfe_Author_Joey_L.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Tom_Wolfe_Author_Joey_L.jpg" data-study="" data-desc="Author, Tom Wolfe Photographed in his Home for The Sunday Times Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Tom_Wolfe_Author_Joey_L_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Author, Tom Wolfe Photographed in his Home</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/john-legend-and-chrissy-teigen-163">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_John_ Legend_Chrissy_Teigen_FEED.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_John_ Legend_Chrissy_Teigen_FEED.jpg" data-study="" data-desc="John Legend and Chrissy Teigen for FEED Projects. Model; Musician ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_John_ Legend_Chrissy_Teigen_FEED.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">John Legend and Chrissy Teigen</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/venessa-arizaga-and-olivia-kim-for-feed-projects-162">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Venessa_Arizaga_Olivia_Kim_FEED.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Venessa_Arizaga_Olivia_Kim_FEED.jpg" data-study="" data-desc="Venessa Arizaga and Olivia Kim for FEED Projects. Jewelry Designer; Director of Creative Projects, Nordstrom">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Venessa_Arizaga_Olivia_Kim_FEED.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Venessa Arizaga and Olivia Kim for FEED Projects</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/karlie-kloss-and-christina-tosi-164">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Karlie_Kloss_Christina_Tosi_FEED.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Karlie_Kloss_Christina_Tosi_FEED.jpg" data-study="" data-desc="Karlie Kloss and Christina Tosi for FEED Projects. Model and Co-Founder, Karlie&#039;s Kookies; Chef / Founder, Momofuku Milk Bar">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Karlie_Kloss_Christina_Tosi_FEED.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Karlie Kloss and Christina Tosi</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/robert-de-niro-158">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Robert_De_Niro.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Robert_De_Niro.jpg" data-study="" data-desc="Robert De Niro, Actor ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Robert_De_Niro.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Robert De Niro</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/dylan-mcdermott-149">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Dylan McDermott.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Dylan McDermott.jpg" data-study="" data-desc="Dylan McDermott, Actor">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Dylan McDermott.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Dylan McDermott</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/bryan-cranston-actor-923">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Bryan_Cranston_Joey L_Photographer_Web.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Bryan_Cranston_Joey L_Photographer_Web.jpg" data-study="" data-desc="Bryan Cranston, Actor">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Bryan_Cranston_Joey L_Photographer_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Bryan Cranston, Actor</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/bryan-cranston-actor-902">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Bryan_Cranston_Joey_L.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Bryan_Cranston_Joey_L.jpg" data-study="" data-desc="Bryan Cranston, Actor">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Bryan_Cranston_Joey_L_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Bryan Cranston, Actor</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/bryan-cranston-actor-903">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Bryan_Cranston_Actor_Joey_L.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Bryan_Cranston_Actor_Joey_L.jpg" data-study="" data-desc="Bryan Cranston, Actor">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Bryan_Cranston_Actor_Joey_L_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Bryan Cranston, Actor</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sunday-times-cover-blondie-950">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Sunday TImes_Joey L Photographer_Blondie_01.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Sunday TImes_Joey L Photographer_Blondie_01.jpg" data-study="" data-desc="Recording Artist Debbie Harry from the band &ldquo;Blondie&rdquo; photographed for the cover of Sunday Times Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Sunday TImes_Joey L Photographer_Blondie_01_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sunday Times Cover - Blondie</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sunday-times-blondie-952">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Sunday Times_Joey L Photographer_Blondie_02.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Sunday Times_Joey L Photographer_Blondie_02.jpg" data-study="" data-desc="Recording Artist Debbie Harry and Chris Stein from the band &ldquo;Blondie&rdquo; photographed for the cover of Sunday Times Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Sunday Times_Joey L Photographer_Blondie_02_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sunday Times - Blondie</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ellen-burstyn-169">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Ellen_Burstyn_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Ellen_Burstyn_002.jpg" data-study="" data-desc="Ellen Burstyn, Actress">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Ellen_Burstyn_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ellen Burstyn</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/martin-sheen-167">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Martin_Sheen.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Martin_Sheen.jpg" data-study="" data-desc="Martin Sheen on the set of &quot;Trash&quot; Rio De Janeiro, Brazil">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Martin_Sheen.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Martin Sheen</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jessica-chastain-157">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jessica_Chastain.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jessica_Chastain.jpg" data-study="" data-desc="Jessica Chastain, Actress ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jessica_Chastain.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jessica Chastain</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ellen-burstyn-168">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Ellen_Burstyn_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Ellen_Burstyn_001.jpg" data-study="" data-desc="Ellen Burstyn, Actress">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Ellen_Burstyn_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ellen Burstyn</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ad-for-mars-on-national-geographic-channel-942">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Jihae_Mars_National_Geographic_Channel_Joey_L_01.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Jihae_Mars_National_Geographic_Channel_Joey_L_01.JPG" data-study="" data-desc="Ad for Mars on National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Jihae_Mars_National_Geographic_Channel_Joey_L_01_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ad for Mars on National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/ad-for-mars-on-national-geographic-channel-943">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Jihae_Mars_National_Geographic_Channel_Joey_L_02.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Jihae_Mars_National_Geographic_Channel_Joey_L_02.JPG" data-study="" data-desc="Ad for Mars on National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Jihae_Mars_National_Geographic_Channel_Joey_L_02_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Ad for Mars on National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-kennedy-170">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Rob_Lowe_Ginnifer_Goodwin_Killing_Kennedy.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Rob_Lowe_Ginnifer_Goodwin_Killing_Kennedy.jpg" data-study="" data-desc="Rob Lowe as John F. Kennedy and Ginnifer Goodwin as Jackie Kennedy. &quot;Killing Kennedy&quot;, National Geographic Channel ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Rob_Lowe_Ginnifer_Goodwin_Killing_Kennedy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Kennedy</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-kennedy-171">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Kennedy.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Kennedy.jpg" data-study="" data-desc="Rob Lowe as John F. Kennedy and Ginnifer Goodwin as Jackie Kennedy. &quot;Killing Kennedy&quot;, National Geographic Channel ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Kennedy.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Kennedy</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-lincoln-172">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Lincoln_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Lincoln_001.jpg" data-study="" data-desc="Jesse Johnson as John Wilkes Booth and Billy Campbell as Abraham Lincoln. &quot;Killing Lincoln&quot;, National Geographic Channel ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Lincoln_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Lincoln</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-lincoln-173">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Lincoln_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Lincoln_002.jpg" data-study="" data-desc="Jesse Johnson as John Wilkes Booth and Billy Campbell as Abraham Lincoln. &quot;Killing Lincoln&quot;, National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Lincoln_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Lincoln</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-lincoln-174">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Lincoln_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Lincoln_003.jpg" data-study="" data-desc="Jesse Johnson as John Wilkes Booth and Billy Campbell as Abraham Lincoln. &quot;Killing Lincoln&quot;, National Geographic Channel ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Lincoln_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Lincoln</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/iain-glen-730">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Iain Glen_Actor_Joey_L_Retouched.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Iain Glen_Actor_Joey_L_Retouched.jpg" data-study="" data-desc="Portrait of Iain Glen, actor. ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Iain Glen_Actor_Joey_L_Retouched_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Iain Glen</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sue-aikens-175">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Sue_Aikens.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Sue_Aikens.jpg" data-study="" data-desc="Portrait of Sue Aikens for National Geographic Channel&#039;s &quot;Life Below Zero&quot;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Sue_Aikens.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sue Aikens</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/henry-william-oelkers-176">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Blizzard_Explorer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Blizzard_Explorer.jpg" data-study="" data-desc="Explorer Portraits: Henry William Oelkers ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Blizzard_Explorer.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Henry William Oelkers</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/hamar-women-at-sunrise-177">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Hamar_Women_At_Sunrise.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Hamar_Women_At_Sunrise.jpg" data-study="" data-desc="The Hamar are a agro-pastoral tribal group living amongst the many diverse ethnic groups that occupy Ethiopia&rsquo;s Lower Omo Valley. A complex belief system with deep animistic roots intertwines their daily lives with their livestock, a central part of Hamar culture. The women are well known for putting beautiful red river clay in their hair and skin.  (Left to right): Buli Ure, Kydo Damo, Godi Mana, Kaja Kala, Bazo Damo, Wollyso Muga, Keli Kyma, Godi Kala, Wotu Shada, Kyla Mama and Bulla Ure. 
+(Ongoing series 2008 - 2014)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Hamar_Women_At_Sunrise.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Hamar Women at Sunrise</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/portrait-of-rufo-178">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Portrait_of_Rufo.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Portrait_of_Rufo.jpg" data-study="" data-desc="Portrait of Rufo (Ongoing series 2008 - 2014)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Portrait_of_Rufo.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Portrait of Rufo</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/shallowgo-on-lake-turkana-179">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Shallowgo_On_Lake_Turkana.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Shallowgo_On_Lake_Turkana.jpg" data-study="" data-desc="Shallowgo checks his fishing nets for the daily catch. The Omo River&#039;s flow is essential to the health of the lake, channeling fresh water via great deltas. In recent times, the Dassanach have seen the lake retreat, shrinking in size and increasing in salinity. Dassanach tribe, Ethiopia. 
+(Ongoing series 2008 - 2014)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Shallowgo_On_Lake_Turkana.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Shallowgo on Lake Turkana</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/procession-under-tuma-180">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Bodi_Meen_Tribe_Procession_Under_Tuma.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Bodi_Meen_Tribe_Procession_Under_Tuma.jpg" data-study="" data-desc="A woman of the Bodi tribe has fallen ill and died. The elder women of the village shout to the spirits and chant of her death to bring her soul to peace. The men perform a ceremonial procession and will guard the body of the deceased for 3 months 
+(Ongoing series 2008 - 2014)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Bodi_Meen_Tribe_Procession_Under_Tuma.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Procession Under Tuma</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/study-of-arbore-virgin-571">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Omo_Valley_Ethiopia_Tribes_098.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Omo_Valley_Ethiopia_Tribes_098.jpg" data-study="" data-desc="Study of Arbore Virgin, Arbore tribe, Lower Omo Valley, Ethiopia (2008 - Ongoing)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Omo_Valley_Ethiopia_Tribes_098.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Study of Arbore Virgin</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/study-of-biwa-bermo-572">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Omo_Valley_Ethiopia_Tribes_086.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Omo_Valley_Ethiopia_Tribes_086.jpg" data-study="" data-desc="Study of Biwa Bermo">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Omo_Valley_Ethiopia_Tribes_086.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Study of Biwa Bermo</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/in-voluptate-mors-tribute-rico-the-zombie-182">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_In_Voluptate_Mors_Tribute_Rico_The_Zombie.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_In_Voluptate_Mors_Tribute_Rico_The_Zombie.jpg" data-study="" data-desc="Tribute to Salvador Dali and Philippe Halsman&#039;s &quot;In Voluptate Mors.&quot; Rick Genest, aka &quot;Rico the Zombie&quot;">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_In_Voluptate_Mors_Tribute_Rico_The_Zombie.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">In Voluptate Mors Tribute, Rico The Zombie</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/rick-genest-183">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Zombie_Boy_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Zombie_Boy_001.jpg" data-study="" data-desc="Rick Genest, aka &quot;Rico the Zombie&quot; photographed for the cover of Rebel Ink Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Zombie_Boy_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Rick Genest</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/rick-genest-184">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Zombie_Boy_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Zombie_Boy_002.jpg" data-study="" data-desc="Rick Genest, aka &quot;Rico the Zombie&quot; photographed for the cover of Rebel Ink Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Zombie_Boy_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Rick Genest</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/luke-james-186">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Luke_James_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Luke_James_001.jpg" data-study="" data-desc="Luke James, Island Def Jam">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Luke_James_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Luke James</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/luke-james-187">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Luke_James_002_.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Luke_James_002_.jpg" data-study="" data-desc="Luke James, Island Def Jam">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Luke_James_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Luke James</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/cocacola-189">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Coca_Cola.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Coca_Cola.jpg" data-study="" data-desc="&quot;The Perfectionist&quot; - George Lawrence for Coca-Cola ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Coca_Cola.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Coca-Cola</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/aisha-tyler-190">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Aisha_Tyler.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Aisha_Tyler.jpg" data-study="" data-desc="Aisha Tyler, actress, stand-up comedian, and author. ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Aisha_Tyler.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Aisha Tyler</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/danny-devito-191">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_001.jpg" data-study="" data-desc="Danny DeVito, It&#039;s Always Sunny in Philadelphia, FX Networks ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Danny DeVito</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/danny-devito-192">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_002.jpg" data-study="" data-desc="Danny DeVito, It&#039;s Always Sunny in Philadelphia, FX Networks ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Its_Always_Sunny_In_Philadelphia_Danny_Devito_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Danny DeVito</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/old-man-193">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Pawn_Stars_Old_Man_Car.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Pawn_Stars_Old_Man_Car.jpg" data-study="" data-desc="Old Man, Pawnstars, History ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Pawn_Stars_Old_Man_Car.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Old Man</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/old-man-194">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Old_Man_Pawn_Stars.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Old_Man_Pawn_Stars.jpg" data-study="" data-desc="Old Man, Pawnstars, History">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Old_Man_Pawn_Stars.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Old Man</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/boyscouts-of-america-196">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Boy_Scouts_of_America_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Boy_Scouts_of_America_001.jpg" data-study="" data-desc="Boyscouts of America">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Boy_Scouts_of_America_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Boyscouts of America</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/boyscouts-of-america-197">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Boy_Scouts_of_America_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Boy_Scouts_of_America_002.jpg" data-study="" data-desc="Boyscouts of America">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Boy_Scouts_of_America_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Boyscouts of America</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/vijay-nund-on-ganges-river-200">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Vijay_Nund_Ganges_River_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Vijay_Nund_Ganges_River_001.jpg" data-study="" data-desc="Ascetic priest Baba Vijay Nund rows a boat along the Ganges River. Varanasi, India 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Vijay_Nund_Ganges_River_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Vijay Nund On Ganges River</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/vijay-nund-on-the-gange-river-201">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Vijay_Nund_Ganges_River_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Vijay_Nund_Ganges_River_002.jpg" data-study="" data-desc="Vijay Nund performing morning rituals in the Ganges River, the most sacred river in Hinduism. Varanasi, India 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Vijay_Nund_Ganges_River_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Vijay Nund on the Gange River</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/aghora-202">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Aghora.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Aghora.jpg" data-study="" data-desc="Aghori sadhus cover themselves with human ash, which is the last rite of the material body. Varanasi, India 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Aghora.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Aghora</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/lal-baba-203">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Lal_Baba_Varanasi_India_Sadhu.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Lal_Baba_Varanasi_India_Sadhu.jpg" data-study="" data-desc="When he was young, Lal Baba&rsquo;s parents arranged a marriage for him. Uncertain about his future, he ran away from home in Bihar Siwan and took up the lifelong task of becoming a sadhu. Varanasi, India  
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Lal_Baba_Varanasi_India_Sadhu.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Lal Baba</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sabrida-shing-204">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Sabrida_Shing.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Sabrida_Shing.jpg" data-study="" data-desc="One of the few rare women to take on the the task of becoming a Sadhvi. She has not cut her hair since her husband died, making the ends of the dreadlocks over 10 years old at the time the photograph was taken. Kathmandu, Nepal 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Sabrida_Shing.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sabrida Shing</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/gashaw-mesganaw-205">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Northern_Ethiopia_Gashaw_Mesganaw.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Northern_Ethiopia_Gashaw_Mesganaw.jpg" data-study="" data-desc="Gashaw Mesganaw is a deacon studying to become a monk at Abuna Aron, a cave monastery in Northern Ethiopia. This holy place is known for its beam of light is visable only when the sun aligns with the hole in its ceiling. 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Northern_Ethiopia_Gashaw_Mesganaw.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Gashaw Mesganaw</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/aman-tetap-206">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Mentawai_Shaman_Aman_Tetap.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Mentawai_Shaman_Aman_Tetap.jpg" data-study="" data-desc="Tetap is quite young to take on the heavy burden of becoming a shaman, but it is a choice made out of desperation. Tetap is sick with rheumatism, a painful disease which inflames the muscles and tissue of the body. He believes that if he does not become a Sikeri, he will die from this disease. 
+(&quot;Holy Men&quot; Personal Series)">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Mentawai_Shaman_Aman_Tetap.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Aman Tetap</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/javier-and-jordan-ramos-as-batman-207">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Halloween_In_Brooklyn_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Halloween_In_Brooklyn_001.jpg" data-study="" data-desc="Javier and Jordan Ramos as &ldquo;Batman&rdquo;, 5:07pm October 31st, 2013 - Bushwick, Brooklyn">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Halloween_In_Brooklyn_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Javier and Jordan Ramos as &ldquo;Batman&rdquo;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/john-carlos-as-skeleton-208">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Halloween_In_Brooklyn_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Halloween_In_Brooklyn_002.jpg" data-study="" data-desc="John Carlos as &quot;Skeleton&quot;, 5:35pm October 31st, 2013 - Bushwick, Brooklyn">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Halloween_In_Brooklyn_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">John Carlos as &quot;Skeleton&quot;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/sandra-basilio-as-bat-girl-210">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Halloween_In_Brooklyn_004.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Halloween_In_Brooklyn_004.jpg" data-study="" data-desc="Sandra Basilio as &ldquo;Bat Girl&rdquo;, 4:41pm October 31st, 2013 - Bushwick, Brooklyn">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Halloween_In_Brooklyn_004.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Sandra Basilio as &ldquo;Bat Girl&rdquo;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jefferson-rocha-as-werewolf-209">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Halloween_In_Brooklyn_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Halloween_In_Brooklyn_003.jpg" data-study="" data-desc="Jefferson Rocha as &quot;Werewolf&quot;, 5:23pm October 31st, 2013 - Bushwick, Brooklyn">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Halloween_In_Brooklyn_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jefferson Rocha as &quot;Werewolf&quot;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/paige-as-donnie-darko-721">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Halloween_In_Brooklyn_020.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Halloween_In_Brooklyn_020.jpg" data-study="" data-desc="Paige as &ldquo;Donnie Darko&rdquo;, 2:12am November 1st, 2014 &ndash; J Train, Brooklyn">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Halloween_In_Brooklyn_020.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Paige as &ldquo;Donnie Darko&rdquo;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/cave-explorer-robbie-shone-for-san-miguel-890">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/San_Miguel_Beer_Campaign_Joey_L_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="San_Miguel_Beer_Campaign_Joey_L_001.jpg" data-study="" data-desc="Cave Explorer, Robbie Shone for San Miguel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/San_Miguel_Beer_Campaign_Joey_L_001_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Cave Explorer, Robbie Shone for San Miguel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/artist-in-landscape-tony-plant-for-san-miguel-891">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/San_Miguel_Beer_Campaign_Joey_L_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="San_Miguel_Beer_Campaign_Joey_L_003.jpg" data-study="" data-desc="Artist in Landscape, Tony Plant for San Miguel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/San_Miguel_Beer_Campaign_Joey_L_003_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Artist in Landscape, Tony Plant for San Miguel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/horse-whisperer-simin-nadjafi-hinrichs-892">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/San_Miguel_Beer_Campaign_Joey_L_005.jpg" class="lightbox-portfolio" rel="portfolio" data-name="San_Miguel_Beer_Campaign_Joey_L_005.jpg" data-study="" data-desc="Horse Whisperer, Simin Nadjafi Hinrichs for San Miguel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/San_Miguel_Beer_Campaign_Joey_L_005_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Horse Whisperer, Simin Nadjafi Hinrichs</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/tom-wolfe-for-the-cover-of-the-sunday-times-893">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Tom_Wolfe_Author_Sunday_Times_Tearsheet_Joey_L.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Tom_Wolfe_Author_Sunday_Times_Tearsheet_Joey_L.jpg" data-study="" data-desc="Tom Wolfe Photographed for the Cover of The Sunday Times Magazine">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Tom_Wolfe_Author_Sunday_Times_Tearsheet_Joey_L_THUMB.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Tom Wolfe for the Cover of The Sunday Times</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/canada-goose-presents-out-there-871">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Canada_Goose_Out_There_Poster_Joey_L_Photographer.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Canada_Goose_Out_There_Poster_Joey_L_Photographer.jpg" data-study="" data-desc="Canada Goose Presents Out There">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Canada_Goose_Out_There_Poster_Joey_L_Photographera_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Canada Goose Presents Out There</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/poster-for-mars-on-national-geographic-channel-946">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Jihae_Mars_National_Geographic_Channel_Joey_L_04.JPG" class="lightbox-portfolio" rel="portfolio" data-name="Jihae_Mars_National_Geographic_Channel_Joey_L_04.JPG" data-study="" data-desc="Poster for MARS on National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Jihae_Mars_National_Geographic_Channel_Joey_L_04_Thumb.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Poster for MARS on National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/life-below-zero-national-geographic-channel-646">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Life_Below_Zero_April_Billboard_Sue.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Life_Below_Zero_April_Billboard_Sue.jpg" data-study="" data-desc="Portrait of Sue Aikens for Life Below Zero, National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Life_Below_Zero_April_Billboard_Sue.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Life Below Zero, National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/life-below-zero-national-geographic-channel-647">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Life_Below_Zero_April_Billboard_Glenn.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Life_Below_Zero_April_Billboard_Glenn.jpg" data-study="" data-desc="Portrait of Glenn Villeneuve for Life Below Zero, National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Life_Below_Zero_April_Billboard_Glenn.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Life Below Zero, National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jose-cuervo-dons-of-tequila-advertising-campaign-679">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_020.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_020.jpg" data-study="" data-desc="Jose Cuervo &ldquo;Dons of Tequila&rdquo; Advertising Campaign">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_020.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jose Cuervo &ldquo;Dons of Tequila&rdquo; Advertising Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/jose-cuervo-dons-of-tequila-advertising-campaign-678">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_019.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_019.jpg" data-study="" data-desc="Jose Cuervo &ldquo;Dons of Tequila&rdquo; Advertising Campaign">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Jose_Cuervo_Campaign_Tequila_Mexico_019.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Jose Cuervo &ldquo;Dons of Tequila&rdquo; Advertising Campaign</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/black-sails-starz-211">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Black_Sails_Starz.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Black_Sails_Starz.jpg" data-study="" data-desc="Black Sails, Starz">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Black_Sails_Starz.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Black Sails, Starz</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/red-tent-lifetime-212">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Rebecca_Ferguson_Red_Tent.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Rebecca_Ferguson_Red_Tent.jpg" data-study="" data-desc="Red Tent, Lifetime">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Rebecca_Ferguson_Red_Tent.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Red Tent, Lifetime</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/life-below-zero-national-geographic-channel-213">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Sue_Aikens_Life_Below_Zero.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Sue_Aikens_Life_Below_Zero.jpg" data-study="" data-desc="Life Below Zero, National Geographic Channel">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Sue_Aikens_Life_Below_Zero.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Life Below Zero, National Geographic Channel</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-kennedy-key-art-214">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Kennedy_Rob_Lowe_Will_Rothhar_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Kennedy_Rob_Lowe_Will_Rothhar_Poster.jpg" data-study="" data-desc="Rob Lowe as John F. Kennedy and Will Rothhaar as Lee Harvey Oswald in National Geographic Channel&#039;s &quot;Killing Kennedy&quot; ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Kennedy_Rob_Lowe_Will_Rothhar_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Kennedy Key Art</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/killing-lincoln-key-art-215">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Killing_Lincoln_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Killing_Lincoln_Poster.jpg" data-study="" data-desc="Key art for National Geographic Channel&rsquo;s &ldquo;Killing Lincoln&rdquo; featuring Jesse Johnson as John Wilkes Booth and Billy Campbell as Abraham Lincoln">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Killing_Lincoln_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Killing Lincoln Key Art</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/taboo-216">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Taboo_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Taboo_Poster.jpg" data-study="" data-desc="Taboo, National Geographic Channel ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Taboo_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Taboo</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/flowers-in-the-attic-217">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Flowers_In_The_Attic_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Flowers_In_The_Attic_Poster.jpg" data-study="" data-desc="Flowers in the Attic, Lifetime Network ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Flowers_In_The_Attic_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Flowers in the Attic</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/the-gabby-douglas-story-218">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_The_Gabby_Douglas_Story_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_The_Gabby_Douglas_Story_Poster.jpg" data-study="" data-desc="The Gabby Douglas Story, Lifetime Network ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_The_Gabby_Douglas_Story_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">The Gabby Douglas Story</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/twilight-219">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Twilight_Movie_Poster.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Twilight_Movie_Poster.jpg" data-study="" data-desc="Twilight, Summit Entertainment ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Twilight_Movie_Poster.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Twilight</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/do-it-right-573">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Warsteiner_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Warsteiner_001.jpg" data-study="" data-desc="&quot;Do it Right&quot; Warsteiner Campaign, Amsterdam Worldwide">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Warsteiner_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">&quot;Do it Right&quot;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/do-it-right-223">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Warsteiner_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Warsteiner_002.jpg" data-study="" data-desc="&quot;Do it Right&quot; Warsteiner Campaign, Amsterdam Worldwide">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Warsteiner_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">&quot;Do it Right&quot;</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/lavazza-wimbledon-2013-225">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Lavazza_Poster_001.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Lavazza_Poster_001.jpg" data-study="" data-desc="&quot;The New Tradition of Wimbledon&quot; Lavazza Campaign ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Lavazza_Poster_001.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Lavazza / Wimbledon 2013</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/lavazza-wimbledon-2013-226">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Lavazza_Poster_002.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Lavazza_Poster_002.jpg" data-study="" data-desc="&quot;The New Tradition of Wimbledon&quot; Lavazza Campaign ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Lavazza_Poster_002.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Lavazza / Wimbledon 2013</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                        <div class="box portfolio" data-nav="19" data-subnav="">
+                <!--                 <a href="https://joeyl.com/overview/category/19/lavazza-wimbledon-2013-227">
+                 -->
+
+                    
+                    <div class="boxInner">
+                                                    <a href="https://joeyl.com/uploads/portfolio/Joey_L_Photographer_Lavazza_Poster_003.jpg" class="lightbox-portfolio" rel="portfolio" data-name="Joey_L_Photographer_Lavazza_Poster_003.jpg" data-study="" data-desc="&quot;The New Tradition of Wimbledon&quot; Lavazza Campaign ">
+                                                        <img src="https://joeyl.com/uploads/portfolio/t/Joey_L_Photographer_Lavazza_Poster_003.jpg"/>
+                            </a>
+                            <!-- <p class="play">PLAY</p> -->
+                            <!-- <p class="portfolioTitle">Lavazza / Wimbledon 2013</p> -->
+                    </div>
+                <!-- </a> -->
+            </div>
+                    </div>
+    </div>
+
+    
+
+</div>
+
+
+
+<footer>
+
+    <div class="container">
+        <p class="social">
+                <a target="_blank" href="http://twitter.com/#!/joeyldotcom" class="twitter"></a>
+                <a target="_blank" href="http://www.facebook.com/joeylphotographer" class="facebook"></a>
+                <a target="_blank" href="http://instagram.com/joeyldotcom" class="instagram"></a>
+        </p>
+        <!-- <p class="social"><a href="http://www.facebook.com/joeylphotographer"></a><a href="http://twitter.com/#!/joeyldotcom" class="twitter"></a></p> -->
+        <p class="copyright">&copy; Joey L. 2015. All Rights Reserved</p>
+    </div>
+</footer>
+<script src="https://joeyl.com/js/jquery-ui-1.10.2.min.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/jquery.mobile.custom.min.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/respond.min.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/perfect-scrollbar.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/responsiveslides.min.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/addons.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/common.js" type="text/javascript"></script>
+<script src="https://joeyl.com/js/retina-1.3.0.min.js" type="text/javascript"></script>
+<script src="https://joeyl.com/packages/fancybox/source/jquery.fancybox.js"></script>
+<script src="https://joeyl.com/js/jquery.sticky-kit.min.js" type="application/javascript"></script>
+
+<script>
+    var base_url = 'https://joeyl.com';
+
+    $(function(){    
+       $( document ).ready(function() {
+            $('#menu').slicknav({
+                prependTo:'#headerMenu',
+                label: '',
+                beforeOpen: function(trigger){ slicknavOpened(trigger);},
+                beforeClose: function(trigger){ enableScrolling(trigger);},
+                init: function(){ menuHeight(); if(!$('.slicknav_menu .logo').length)$('.slicknav_menu').prepend('<div class="logo"><a href="/"></a></div>')}
+            });
+
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        });
+
+       function menuHeight(){
+        if ($( window ).height()-120 >= 415) {
+            $("ul.slicknav_nav").height(415);
+        }else{
+            $("ul.slicknav_nav").height($( window ).height()-120);
+        }
+       }
+
+       function enableScrolling(trigger) {
+            var $trigger = $(trigger[0]);
+            if ($trigger.hasClass('slicknav_btn')) {
+                $('body').toggleClass('scrollDisabled');
+                // this is the top-level menu/list opening.
+                // we only want to trap lower-level/sublists.
+                return;
+            }
+            return;
+        }
+
+       function slicknavOpened(trigger) {
+            var $trigger = $(trigger[0]);
+            if ($trigger.hasClass('slicknav_btn')) {
+                $('body').toggleClass('scrollDisabled');
+                // this is the top-level menu/list opening.
+                // we only want to trap lower-level/sublists.
+                return;
+            }
+            // trigger is an <a> anchor contained in a <li>
+            var $liParent = $trigger.parent();
+            // parent <li> is contained inside a <ul>
+            var $ulParent = $liParent.parent();
+            // loop through all children of parent <ul>
+            // i.e. all siblings of this <li>
+            $ulParent.children().each(function () {
+                var $child = $(this);
+                if ($child.is($liParent)) {
+                    // this child is self, not is sibling
+                    return;
+                }
+                if ($child.hasClass('slicknav_collapsed')) {
+                    // this child is already collapsed
+                    return;
+                }
+                if (!$child.hasClass('slicknav_open')) {
+                    // could throw an exception here: this shouldn't happen
+                    // because I expect li to have class either slicknav_collapsed or slicknav_open
+                    return;
+                }
+                // found a sibling <li> which is already open.
+                // expect that its first child is an anchor item.
+                var $anchor = $child.children().first();
+                if (!$anchor.hasClass('slicknav_item')) {
+                    return;
+                }
+                // close the sibling by emulating a click on its anchor.
+                $anchor.click();
+            });
+        }
+
+
+
+        var $mnls,$mnlsul, $el, leftPos, newWidth, $sub;
+        var linemove = 1;
+        var $hcont = $('.hcontainer');
+
+        $mnls = $(".mainNavLi");
+        $mnlsul = $mnls.find('ul');
+ 
+        setTimeout(function() {
+            $("#mainNavigation").append("<li id='magic-line'></li>");
+
+            var $magicLine = $("#magic-line");
+
+            $magicLine
+                                .width($(".current_page_item").width())
+                                .css("left", $(".current_page_item").position().left)
+                                .data("origLeft", $magicLine.position().left)
+                                .data("origWidth", $magicLine.width())
+                                .fadeIn(100);
+
+            $(".mainNavLi").hover(function() {
+                $mnls.find('ul').hide().stop().css({'top':'82px'});
+                $el = $(this);
+                leftPos = $el.position().left;
+                newWidth = $el.width();
+                $magicLine.stop().animate({
+                    left: leftPos,
+                    width: newWidth
+                });
+
+                if (($sub = $el.find('ul')).length){
+                    // console.log($sub.height());
+                    $sub.fadeIn(400);
+                    $sub.animate({'top':'55px'},{duration: 400, queue: false});
+                    // $hcont.stop().animate({'height': ($sub.height()+75)+'px'},{duration: 400, queue: false});
+                    $hcont.stop().animate({'height': ($sub.height()+82)+'px'},{duration: 400, queue: false});
+
+                }
+            }, function() {
+                $el = $(this);
+                if (($sub = $el.find('ul')).length){
+                    $sub.hide();
+                    $hcont.animate({'height':'82px'},{duration: 400, queue: false});
+                    $sub.css({'top':'82px'});
+                    
+                    // $('header').animate({'background-color':'rgba(47,46,44,1)'},200);
+                }
+                if (linemove){
+                    $magicLine.stop().animate({
+                        left: $magicLine.data("origLeft"),
+                        width: $magicLine.data("origWidth")
+                    });
+                }
+            });
+        }, 500);
+
+        var $underhead = $('.underhead');
+        $current = $('.current_page_item');
+        $underhead.mouseover(function(e){ 
+            $current.focus(); 
+            setTimeout(function(){$underhead.hide();}, 400);
+            
+        });
+
+        $('header').hover(function() {
+            $underhead.show();
+        }, function() {
+            
+        });
+
+
+        $('#mainNavigation a').click(function(e){
+            var $this = $(this);
+            if ($this.is('[href="#"]')){
+                e.preventDefault();
+                return false;
+            } else if (! $this.is('[target="_blank"]')){
+                e.preventDefault();
+                $('footer').animate({'margin-top': '0px'}, 200, function(){
+                    $(this).hide();
+
+                    linemove = 0;
+                    $mnlsul.hide();
+                    $hcont.animate({'height':'82px'},{duration: 200});
+                    
+
+                    $('.wrapper').fadeOut(400, function(){
+                        document.location = $this.attr('href');                                            
+                    }); 
+                });
+                // $('.wrapper').fadeOut(400, function(){
+                //     document.location = $this.attr('href');                                            
+                // });   
+            }
+        });
+
+
+
+
+        // if (Modernizr.touch) { 
+
+        // } else { 
+        //     $('.side-nav').perfectScrollbar();
+        // }
+
+        
+            $('<div class="portfolioLoader"></div>').insertBefore('.wrapper');
+
+    var imgarray= new Array();
+    var imgarraylen = $('.image-grid img').length;
+    $('.image-grid img').each(function(index, el) {
+        imgarray[index] = $(el).attr('src');
+        if (!--imgarraylen) {
+            if (Modernizr.cssanimations){
+                            preloadPictures(imgarray,function(){
+                                $('.portfolioLoader').fadeOut(200, function(){ $(this).remove();});
+                                $(".wrapper").fadeIn(400, function(){
+                                    $("footer").fadeIn(400, function(){
+
+                                    });
+                                    $(document).trigger('mainContentShowed');
+                                });
+                            });
+                        } else {
+                            $('.portfolioLoader').fadeOut(100, function(){ $(this).remove();});
+                            $(".wrapper").show();
+                            $("footer").show();
+                            $(document).trigger('mainContentShowed');
+                        }
+        }
+    });
+
+    <!-- // fadeOutScreen('.image-grid a'); -->
+    
+
+            
+        // // fadeOutScreen('.side-nav a.clickable');
+
+
+    });
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
